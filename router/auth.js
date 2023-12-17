@@ -20,8 +20,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-
-
 const currentD = dayjs().format('DD/MM/YYYY'); 
 const currentT = dayjs().format('hh:mm A'); 
 
@@ -249,7 +247,7 @@ router.get('/blogs/:id', async (req, res) => {
       console.log(blog);
       if (!blog) {
           return res.status(404).json({ message: 'Blog not found' });
-      }
+      }  
       res.status(200).json(blog);
   } catch (error) {
       console.error('Error individual blog:', error);
