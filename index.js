@@ -10,6 +10,10 @@ app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 app.use(require('./router/auth'));
+app.use('/.netlify/functions/api', router)
+
+
+
 
 const PORT = process.env.PORT || 3000;
 

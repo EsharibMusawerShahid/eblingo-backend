@@ -25,7 +25,11 @@ const currentT = dayjs().format('hh:mm A');
 
 const currentDate = `Date: ${currentD}\nTime: ${currentT}`;
 
-
+router.get('/', (req,res) =>{
+  res.json({
+    'hello' :'welcome'
+  });
+});
 router.post('/register', async (req, res) => {
   const { name, username, email, password, cpassword } = req.body;
 
@@ -247,7 +251,7 @@ router.get('/blogs/:id', async (req, res) => {
       console.log(blog);
       if (!blog) {
           return res.status(404).json({ message: 'Blog not found' });
-      }  
+      }     
       res.status(200).json(blog);
   } catch (error) {
       console.error('Error individual blog:', error);
