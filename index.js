@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
+const serverless = require ("serverless-http");
 const app = express();
 dotenv.config({ path: './config.env' });
 require('./db/connect');
@@ -10,8 +11,6 @@ app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 app.use(require('./router/auth'));
-
-
 
 
 const PORT = process.env.PORT || 3000;
